@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js'></script>
+    <title>React To Do List</title>
+</head>
+<body>
+    <div id='todolist'></div>
+
+    <script type='text/babel'>
+    
+        class List extends React.Component {
+            constructor(props) {
+                super(props)
+                this.state = {
+                    listInput: '',
+                    tasks: [],
+                    amount: 0
+                }
+            }
+
+            addItem = () => {
+                this.setState((state) => ({
+                    tasks: [...state.tasks, this.state.listInput],
+                    listInput: '',
+                    amount: state.tasks.length + 1
+                }))
+            }
+
+            inputItem = (e) => {
+                this.setState({
+                    listInput: e.target.value
+                })
+            }
+
+
+            render() {
+                return (
+                    <div>
+                        <h1>To Do List</h1>
+                        <div>You have {this.state.amount} tasks remaining</div>
+                        <input value={this.state.listInput} onChange={this.inputItem}></input>
+                        <button onClick={this.addItem} >Add Item</button>
+                        <ul>
+                            {
+                            this.state.tasks.map((task, i) => {
+                                return <span key={i}> <li>{task} <button>X</button> </li> </span>
+                            })
+                            }
+                        </ul>
+                    </div>
+                )
+            }
+        }
+    
+        ReactDOM.render(<List />, document.querySelector('#todolist'))
+    </script>
+</body>
+</html>
