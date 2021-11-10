@@ -1,0 +1,8 @@
+[
+    {"name": "Agumon", "stage": "Child", "attribute": "Vaccine"},
+    {"name": "Gammamon", "stage": "Child", "attribute": "Virus"},
+    {"name": "Garurumon", "stage": "Champion", "attribute": "Vaccine"},
+    {"name": "Kabuterimon", "stage": "Champion", "attribute": "Vaccine"},
+    {"name": "Renamon", "stage": "Child", "attribute": "Data"}
+]
+
