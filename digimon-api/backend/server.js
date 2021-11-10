@@ -19,6 +19,14 @@ app.get('/digimon/name/:name', (req, res) => {
     }))
 })
 
+
+
+app.post('/digimon/name', (req, res) => {
+    console.log(req.body.name)
+    const search = req.body.name
+    res.redirect(`http://localhost:4000/digimon/name/${search}`)
+})
+
 app.get('/digimon/attribute/:attribute', (req, res) => {
     const attribute = req.params.attribute.toLowerCase()
     console.log(attribute)
