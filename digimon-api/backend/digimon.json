@@ -3,7 +3,7 @@
     {"name": "Gammamon", "stage": "Child", "attribute": "Virus"},
     {"name": "Garurumon", "stage": "Champion", "attribute": "Vaccine"},
     {"name": "Kabuterimon", "stage": "Champion", "attribute": "Vaccine"},
-    {"name": "Renamon", "stage": "Child", "attribute": "Data"}
+    {"name": "Renamon", "stage": "Child", "attribute": "Data"},
     {"name": "Guilmon", "stage": "Child", "attribute": "Virus"},
     {"name": "Zudomon", "stage": "Ultimate", "attribute": "Vaccine"},
     {"name": "Leomon", "stage": "Champion", "attribute": "Vaccine"},
