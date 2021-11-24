@@ -13,7 +13,6 @@ class App extends React.Component {
         <h1>Welcome to my Quote Generator App</h1>
         <div class="text-muted" id="quote-box">
           <Quote />
-          <Buttons />
         </div>
       </>
     );
@@ -29,7 +28,14 @@ class Quote extends React.Component {
       isLoaded: false,
       quotes: [],
       authors: [],
+      number: Math.floor(Math.random() * 1644)
     };
+  }
+
+  handleClick = () => {
+    this.setState({
+      number: Math.floor(Math.random() * 1644)
+    })
   }
 
   componentDidMount() {
@@ -42,6 +48,7 @@ class Quote extends React.Component {
             isLoaded: true,
             quotes: res.map((item) => item.text),
             authors: res.map((item) => item.author),
+            number: Math.floor(Math.random() * 1644)
           });
         },
         (err) => {
@@ -58,29 +65,20 @@ class Quote extends React.Component {
       console.log(this.state.quotes[6]);
       console.log(this.state.authors[6]);
     }
-    const number = Math.floor(Math.random() * 1644);
-    return (
-      <div>
-        <h4 id="text">{this.state.quotes[number]}</h4>
-        <h5 id="author">- {this.state.authors[number]}</h5>
+    
+    return (    
+      <div id='quotebox'>
+        <h4 id="text">{this.state.quotes[this.state.number]}</h4>
+        <h5 id="author"> {this.state.authors[this.state.number]}</h5>
+        <section>
+          <button onClick={this.handleClick}>New Quote</button>
+          <button>Tweet Quote</button>
+        </section>
       </div>
     );
   }
 }
 
-class Buttons extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
-  render() {
-    return (
-      <>
-        <button>New Quote</button>
-        <button>Tweet Quote</button>
-      </>
-    );
-  }
-}
 
 ReactDOM.render(<App />, document.getElementById("root"));
