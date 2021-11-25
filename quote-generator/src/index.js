@@ -10,7 +10,7 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <h1>Welcome to my Quote Generator App</h1>
+        <h1 id='title'>Quotes to live by  </h1>
         <div class="text-muted" id="quote-box">
           <Quote />
         </div>
@@ -61,18 +61,16 @@ class Quote extends React.Component {
   }
 
   render() {
-    {
-      console.log(this.state.quotes[6]);
-      console.log(this.state.authors[6]);
-    }
-    
-    return (    
-      <div id='quotebox'>
-        <h4 id="text">{this.state.quotes[this.state.number]}</h4>
-        <h5 id="author"> {this.state.authors[this.state.number]}</h5>
-        <section>
-          <button onClick={this.handleClick}>New Quote</button>
-          <button>Tweet Quote</button>
+     
+    return (   
+      <div> 
+        <div id='quote-box'>
+          <h4 id="text">“{this.state.quotes[this.state.number]}”</h4>
+          <h5 id="author"> - {!this.state.authors[this.state.number] ? 'Unknown' : this.state.authors[this.state.number]}</h5>
+        </div>
+        <section className='button-container'>
+          <button className='btn' onClick={this.handleClick}>New Quote</button>
+          <button className='btn'>Tweet Quote</button>
         </section>
       </div>
     );
